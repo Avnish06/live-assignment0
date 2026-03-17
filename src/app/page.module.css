@@ -1,0 +1,258 @@
+.page {
+  --bg: #0b0b10;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.1);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --border: rgba(255, 255, 255, 0.12);
+  --danger: #ff6464;
+  --primary: #7c5cff;
+  --primary-hover: #6a49ff;
+
+  min-height: 100vh;
+  padding: 28px;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(124, 92, 255, 0.35), transparent 55%),
+    radial-gradient(900px 500px at 90% 15%, rgba(25, 221, 170, 0.22), transparent 55%),
+    radial-gradient(700px 500px at 40% 90%, rgba(255, 100, 100, 0.14), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans);
+}
+
+.main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 34px;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--muted);
+  max-width: 56ch;
+  line-height: 1.5;
+}
+
+.balanceCard {
+  min-width: 240px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 12px 12px 10px 12px;
+  backdrop-filter: blur(10px);
+}
+
+.balanceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.balanceValue {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.unit {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.balanceError {
+  margin-top: 10px;
+  color: var(--danger);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.status {
+  min-height: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.error {
+  color: var(--danger);
+}
+
+.primaryButton,
+.secondaryButton,
+.linkButton {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text);
+  transition: 0.15s ease;
+}
+
+.primaryButton {
+  background: var(--primary);
+  border-color: rgba(124, 92, 255, 0.45);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled,
+.linkButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.linkButton {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.preview {
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.audio {
+  width: 100%;
+}
+
+.placeholder {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.transcript {
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transcriptHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.h2 {
+  font-size: 16px;
+  letter-spacing: -0.2px;
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.45;
+  outline: none;
+}
+
+.textarea:focus {
+  border-color: rgba(124, 92, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.15);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover:not(:disabled) {
+    background: var(--primary-hover);
+  }
+
+  .secondaryButton:hover:not(:disabled) {
+    background: var(--panel-strong);
+  }
+
+  .linkButton:hover:not(:disabled) {
+    color: var(--text);
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .balanceCard {
+    width: 100%;
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .status {
+    grid-column: 1 / -1;
+  }
+}
