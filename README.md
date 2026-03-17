@@ -1,58 +1,53 @@
-## Voice Notes Maker (Deepgram)
+## Voice Notes Maker (Next.js)
 
-Record audio in the browser, send it to Deepgram for speech-to-text, and display the transcript as **plain text notes** (no database).
+Voice-to-text notes app built in **Next.js**.
 
-### Setup
+- Records audio in the browser (Record / Stop)
+- Sends audio to **Deepgram** for transcription
+- Displays the transcript as **plain text** (no database)
+- Shows a **wallet/balance** value in the UI
 
-1) Create `\.env.local` in the project root (same folder as `package.json`).
+## Requirements
 
-Use this template:
+- Node.js 18+ (recommended)
+- A Deepgram API key (for transcription)
+
+## Setup
+
+Create `c:\Users\Lenovo\Assignmento\voice-notes-maker\.env.local`:
 
 ```bash
 DEEPGRAM_API_KEY=your_deepgram_api_key_here
-# Optional (if you have multiple projects). If empty, the app uses the first project.
 DEEPGRAM_PROJECT_ID=
 ```
 
-## Getting Started
+Notes:
+- `DEEPGRAM_PROJECT_ID` is optional.
+- You must restart the dev server after changing `.env.local`.
 
-First, run the development server:
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-### Features (per assignment)
+## API routes
 
-- Record button (start)
-- Stop button (stop)
+- `POST /api/transcribe`
+  - Accepts `multipart/form-data` with `audio` (file)
+  - Calls Deepgram `/v1/listen` and returns:
+    - `{ "transcript": "..." }`
+
+- `GET /api/balance`
+  - Temporary implementation that returns:
+    - `{ "balance": "$200" }`
+
+## Assignment checklist (from prompt)
+
+- Start/stop recording controls
 - Transcript display (plain text)
-- Wallet/balance display (fetched from your Deepgram account)
+- Wallet/balance display
 
-### Notes
-
-- Transcription is done via `POST /api/transcribe` (server-side call to Deepgram).
-- Wallet is fetched via `GET /api/balance` (server-side call to Deepgram).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
