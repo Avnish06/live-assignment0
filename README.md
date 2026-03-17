@@ -44,6 +44,7 @@ Open `http://localhost:3000`.
 - `GET /api/balance`
   - Temporary implementation that returns:
     - `{ "balance": "$200" }`
+  - Credits/balance must be fetched **server-side** (API key must not be exposed to the public/browser). If your Deepgram key does not have the required billing permissions (e.g. `billing:read`), the live balance endpoint cannot be used.
 
 ## Assignment checklist (from prompt)
 
